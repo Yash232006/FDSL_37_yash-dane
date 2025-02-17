@@ -1,0 +1,110 @@
+#include<stdio.h>
+#include<string.h>
+struct std {
+char name[20];
+char branch[20];
+int roll_no;
+};
+int main(){
+    struct std a[10];
+    int n;
+    printf("ENTER NO OF STUDENTS:-");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        printf("\nENTER DETAILS OF STUDENT NO %d",i+1);
+        printf("\nENTER NAME OF STUDENT:-");
+        scanf("%s",a[i].name);
+        printf("\nENTER BRANCH OF STUDENT:-");
+        scanf("%s",a[i].branch);
+        printf("\nENTER ROLL NO OF STUDENT:-");
+        scanf("%d",&a[i].roll_no);
+    }
+     for(int i=0;i<n;i++){
+        printf("THE DETAILS OF STUDENT NO %d",i+1);
+        printf("\nTHE NAME IS %s",a[i].name);
+        printf("\nTHE BRANCH  NO IS %s",a[i].branch);
+        printf("\nTHE ROLL NO IS %d",a[i].roll_no);
+
+
+}
+int choice;
+int pos;
+printf("\nENTER 1 FOR INSERTION \t 2 FOR DELETION \t 3 FOR UPDATION");
+scanf("%d",&choice);
+if(choice==1){
+    printf("\nENTER POSTION FOR INSERTION:-");
+    scanf("%d",&pos);
+    for(int i=n-1;i>=pos-1;i--){
+        strcpy(a[i+1].name,a[i].name);
+        strcpy(a[i+1].branch,a[i].branch);
+        a[i+1].roll_no=a[i].roll_no;
+
+
+    }
+    printf("\n INSERT THE DATA:-");
+    
+        printf("\nENTER NAME OF STUDENT:-");
+        scanf("%s",a[pos-1].name);
+        printf("\nENTER BRANCH OF STUDENT:-");
+        scanf("%s",a[pos-1].branch);
+        printf("\nENTER ROLL NO OF STUDENT:-");
+        scanf("%d",&a[pos-1].roll_no);
+        n++;
+         for(int i=0;i<n;i++){
+        printf("\nTHE DETAILS OF STUDENT NO %d",i+1);
+        printf("\nTHE NAME IS %s",a[i].name);
+        printf("\nTHE BRANCH OF STUDENT NO IS %s",a[i].branch);
+        printf("\nTHE ROLL NO IS %d",a[i].roll_no);
+         }}
+        else if(choice==2){
+            int pos;
+            printf("\nENTER POSITION FOR DELETION:-");
+            scanf("%d",&pos);            
+            for(int i=n-1;i>pos-1;i-- ){   
+                strcpy(a[i-1].name,a[i].name);
+                strcpy(a[i-1].branch,a[i].branch);
+                a[i-1].roll_no=a[i].roll_no;}
+                n--;
+                for(int i=0;i<n;i++){
+        printf("\nTHE DETAILS OF STUDENT NO %d AFTER DELETION",i+1);
+        printf("\nTHE NAME IS %s",a[i].name);
+        printf("\nTHE BRANCH OF STUDENT NO IS %s",a[i].branch);
+        printf("\nTHE ROLL NO IS %d",a[i].roll_no);
+         }}else if(choice==3){
+            int roll;
+            printf("\nENTER THE ROLL NO OF STUDENT FOR UPDATION:-");
+            scanf("%d",&roll);
+            for(int i=0;i<n;i++){
+                if(roll==a[i].roll_no){
+                    char name[20];
+                    char branch[20];
+                    int b;
+                    printf("\n ENTER DETAILS FOR UPDATION");
+                    printf("\nENTER THE NAME:-");
+                    scanf("%s",name);
+                    printf("\nENTER THE BRANCH:-");
+                    scanf("%s",branch);
+                    printf("\nENTER ROLL NO:-");
+                    scanf("%d",&b);
+                    a[i].roll_no=b;
+                    strcpy(a[i].name,name);
+                    strcpy(a[i].branch,branch);
+                     }else{
+                        printf("\nNO DATA FOUND");
+                     }
+            }
+            printf("\nDATA AFTER UPDATION");
+             for(int i=0;i<n;i++){
+        printf("\nTHE DETAILS OF STUDENT NO %d",i+1);
+        printf("\nTHE NAME IS %s",a[i].name);
+        printf("\nTHE BRANCH OF STUDENT S %s",a[i].branch);
+        printf("\nTHE ROLL NO IS %d",a[i].roll_no);
+         }
+           
+
+         }else{
+            printf("\nROLL NO NOT MATCHED");
+         }
+
+return 0;
+}
