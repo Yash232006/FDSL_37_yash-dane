@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+void bubblesort(char str[]){
+    char temp;
+   int n=strlen(str);
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(str[j]>str[j+1]){
+                temp=str[j];
+                str[j]=str[j+1];
+                str[j+1]=temp;
+            }
+
+        }
+    }
+    printf("THE STRING AFTER SORTING");
+    printf("\n%s",str);
+}
+int main(){
+    char str[10],temp;
+   
+    printf("ENTER THE STRING FOR SORTING=");
+    scanf("%s",str);
+    
+    bubblesort(str);
+   
+   
+    return 0;
+}
